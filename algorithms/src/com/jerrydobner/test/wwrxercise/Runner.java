@@ -8,10 +8,13 @@ import static java.lang.System.out;
  */
 public class Runner{
 
-  private static final int ITERATIONS = 1000;
+  private static final int ITERATIONS = 10000;
 
   public static void main(String[] args) {
-    Solution[] solutions = {new SolutionJD1(), new SolutionRG1()};
+    Solution[] solutions = {
+        new SolutionJD1(),
+        new SolutionRG1(),
+        new SolutionJD2()};
     new Runner().runAll(solutions);
   }
 
@@ -24,7 +27,16 @@ public class Runner{
 
   private void runOne(Solution s) {
     out.println("Running " + s.getClass() + " x " + ITERATIONS);
-    s.solve().log();
+
+    //Validate solution once
+    Result result = s.solve();
+    if (result.isValid()) {
+      out.println("SOLVED " + s.solve());
+    } else {
+      throw new IllegalArgumentException(result.toString());
+    }
+
+    //now that it's valid, run ITERATIONS times and record timing
     long start = currentTimeMillis();
     for (int i = 0; i < ITERATIONS; i++) {
       s.solve();

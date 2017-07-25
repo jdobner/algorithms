@@ -19,6 +19,6 @@ public class SolutionJD1 implements Solution {
         }
       }
     }
-    throw new IllegalArgumentException("no solution");
+    return Result.BADRESULT;
   }
 }

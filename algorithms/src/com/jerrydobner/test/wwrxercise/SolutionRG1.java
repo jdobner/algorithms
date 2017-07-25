@@ -1,7 +1,5 @@
 package com.jerrydobner.test.wwrxercise;
 
-import static java.lang.Math.pow;
-
 /**
  * Created by jdobner on 7/24/2017.
  */
@@ -13,13 +11,14 @@ public class SolutionRG1 implements Solution {
     for (int c = 1; c < 1000; c++) {
       for (int b = 0; b < c; b++) {
         counter++;
-        int k = (1000 - c - b);
-        if (k < b && (pow(k, 2) + pow(b, 2) == pow(c, 2))) {
-          return new Result(k, b, c, counter);
+        int a = (1000 - c - b);
+        if (a < b && (a * a + b * b == c * c)) {
+          return new Result(a, b, c, counter);
         }
 
       }
     }
-    throw new IllegalArgumentException("no solution");
+    return Result.BADRESULT;
   }
+
 }

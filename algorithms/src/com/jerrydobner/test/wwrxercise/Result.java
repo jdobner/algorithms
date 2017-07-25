@@ -9,6 +9,14 @@ public class Result {
   public final int c;
   public final int iterations;
 
+  public static final Result BADRESULT = new Result(0,0, 0, 0)
+  {
+    @Override
+    public String toString() {
+      return getClass().getName();
+    }
+  };
+
 
   public Result(int a, int b, int c, int iterations) {
     this.a = a;
@@ -22,13 +30,9 @@ public class Result {
     return "a=" + a + ", b=" + b + ", c=" + c + " cycles=" + iterations;
   }
 
-  public void log()
-  {
-    if (a < b && b < c && a+b+c == 1000 && a*a + b*b == c*c) {
-      System.out.println("SOLVED " + this);
-    } else {
-      throw new IllegalArgumentException(this.toString());
-    }
+  public boolean isValid() {
+    return a < b && b < c && a+b+c == 1000 && a*a + b*b == c*c;
   }
+
 
 }
