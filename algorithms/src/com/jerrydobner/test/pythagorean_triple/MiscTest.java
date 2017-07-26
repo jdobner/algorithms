@@ -16,9 +16,6 @@ public class MiscTest {
     new MiscTest().solveInRange(0, 2000);
   }
 
-  protected void solveAll(int from, int to) {
-
-  }
 
 
   protected Map<Integer, Result>  solveInRange(int from, int to) {
