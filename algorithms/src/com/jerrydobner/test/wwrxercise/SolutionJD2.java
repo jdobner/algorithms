@@ -30,10 +30,12 @@ public class SolutionJD2 implements Solution {
     if (k == 0)
     {
       return b;
-    } else if (k > 0) {
-      return findB(a, (max - b) / 2 , b, max, stackSize + 1);
-    } else { //go down
-      return findB(a, (b - min) / 2 , min, b, stackSize+1);
+    } else if (k > 0) { //search up
+      if (b == max) return 0;
+      return findB(a, b + ((max - b) / 2) , b+1, max, stackSize + 1);
+    } else { //search down
+      if (b == min) return 0;
+      return findB(a, b - ((b - min) / 2) , min, b-1, stackSize+1);
     }
   }
 

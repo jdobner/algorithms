@@ -8,13 +8,14 @@ import static java.lang.System.out;
  */
 public class Runner{
 
-  private static final int ITERATIONS = 10000;
+  private static final int ITERATIONS = 100000;
 
   public static void main(String[] args) {
     Solution[] solutions = {
         new SolutionJD1(),
         new SolutionRG1(),
-        new SolutionJD2()};
+        new SolutionJDRecur2(),
+        new SolutionJDIter1()};
     new Runner().runAll(solutions);
   }
 
