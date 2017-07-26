@@ -1,15 +1,16 @@
-package com.jerrydobner.test.pythagorean_triple;
+package com.jerrydobner.test.pythagorean_triple.solutions;
 
 
 import static java.lang.Math.max;
 import static java.lang.Math.min;
 
+import com.jerrydobner.test.pythagorean_triple.Result;
+import com.jerrydobner.test.pythagorean_triple.Solution;
+
 /**
  * Created by jdobner on 7/24/2017.
  */
 public class SolutionJDIter1 implements Solution {
-
-  private int counter;
 
   public Result solve(int perimeter) {
     int counter = 0;
@@ -27,9 +28,9 @@ public class SolutionJDIter1 implements Solution {
         else if (diff < 0)
           hi = b - 1;
         else
-          return new Result(a, b, c, counter);
+          return Result.solved(a, b, c, counter);
       }
     }
-    return Result.BADRESULT;
+    return Result.unsolved(counter);
   }
 }

@@ -1,10 +1,13 @@
-package com.jerrydobner.test.pythagorean_triple;
+package com.jerrydobner.test.pythagorean_triple.solutions;
 
+
+import com.jerrydobner.test.pythagorean_triple.Result;
+import com.jerrydobner.test.pythagorean_triple.Solution;
 
 /**
  * Created by jdobner on 7/24/2017.
  */
-public class SolutionJD1 implements Solution {
+public class SolutionBruteForce1 implements Solution {
 
 
   public Result solve(int perimeter) {
@@ -15,10 +18,10 @@ public class SolutionJD1 implements Solution {
         int c = perimeter - (a + b);
         if (c <= b) break;
         if (((a * a) + (b * b)) == (c * c)) {
-          return new Result(a, b , c, counter);
+          return Result.solved(a, b , c, counter);
         }
       }
     }
-    return Result.BADRESULT;
+    return Result.unsolved(counter);
   }
 }
