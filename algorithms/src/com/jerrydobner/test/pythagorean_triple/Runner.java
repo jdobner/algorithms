@@ -1,4 +1,4 @@
-package com.jerrydobner.test.wwrxercise;
+package com.jerrydobner.test.pythagorean_triple;
 
 import static java.lang.System.currentTimeMillis;
 import static java.lang.System.out;

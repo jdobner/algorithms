@@ -1,4 +1,4 @@
-package com.jerrydobner.test.wwrxercise;
+package com.jerrydobner.test.pythagorean_triple;
 
 /**
  * Created by jdobner on 7/24/2017.
