@@ -6,9 +6,9 @@ package com.jerrydobner.test.pythagorean_triple;
 public class SolutionRG1 implements Solution {
 
   @Override
-  public Result solve() {
+  public Result solve(int perimeter) {
     int counter = 0;
-    for (int c = 1; c < 1000; c++) {
+    for (int c = 1; c < perimeter; c++) {
       for (int b = 0; b < c; b++) {
         counter++;
         int a = (1000 - c - b);

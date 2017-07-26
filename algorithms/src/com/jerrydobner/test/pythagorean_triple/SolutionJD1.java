@@ -7,12 +7,12 @@ package com.jerrydobner.test.pythagorean_triple;
 public class SolutionJD1 implements Solution {
 
 
-  public Result solve() {
+  public Result solve(int perimeter) {
     int counter = 0;
-    for (int a = 1; a < 1000; a++) {
+    for (int a = 1; a < perimeter; a++) {
       for (int b = a + 1;; b++) {
         counter++;
-        int c = 1000 - (a + b);
+        int c = perimeter - (a + b);
         if (c <= b) break;
         if (((a * a) + (b * b)) == (c * c)) {
           return new Result(a, b , c, counter);

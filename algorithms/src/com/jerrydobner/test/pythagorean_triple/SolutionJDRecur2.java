@@ -11,12 +11,12 @@ public class SolutionJDRecur2 implements Solution {
 
   private int counter;
 
-  public Result solve() {
+  public Result solve(int perimeter) {
     Counter counter = new Counter();
     for (int a = 1; a < 1000; a++) {
       int start = a + 1;
       int b = findB(a, start, 1000 - a - start, 0, counter);
-      if (b > 0) return new Result(a, b, 1000 - a - b, counter.getIterations());
+      if (b > 0) return new Result(a, b, perimeter - a - b, counter.getIterations());
     }
     return Result.BADRESULT;
   }

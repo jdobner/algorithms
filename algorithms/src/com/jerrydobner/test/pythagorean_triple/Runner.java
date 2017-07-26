@@ -6,33 +6,33 @@ import static java.lang.System.out;
 /**
  * Created by jdobner on 7/24/2017.
  */
-public class Runner{
+public class Runner {
 
-  private static final int ITERATIONS = 100000;
+  private static final int ITERATIONS = 10000;
+  private static final Solution[] SOLUTIONS = {
+      new SolutionJD1(),
+      new SolutionRG1(),
+      new SolutionJDRecur2(),
+      new SolutionJDIter1()};
 
   public static void main(String[] args) {
-    Solution[] solutions = {
-        new SolutionJD1(),
-        new SolutionRG1(),
-        new SolutionJDRecur2(),
-        new SolutionJDIter1()};
-    new Runner().runAll(solutions);
+    new Runner().runAll(SOLUTIONS, 1000);
   }
 
 
-  private void runAll(Solution[] solutions) {
+  private void runAll(Solution[] solutions, int perimeter) {
     for (Solution s : solutions) {
-      runOne(s);
+      runOne(s, perimeter);
     }
   }
 
-  private void runOne(Solution s) {
+  private void runOne(Solution s, int perimeter) {
     out.println("Running " + s.getClass() + " x " + ITERATIONS);
 
     //Validate solution once
-    Result result = s.solve();
+    Result result = s.solve(perimeter);
     if (result.isValid()) {
-      out.println("SOLVED " + s.solve());
+      out.println("SOLVED " + result);
     } else {
       throw new IllegalArgumentException(result.toString());
     }
@@ -40,7 +40,7 @@ public class Runner{
     //now that it's valid, run ITERATIONS times and record timing
     long start = currentTimeMillis();
     for (int i = 0; i < ITERATIONS; i++) {
-      s.solve();
+      s.solve(perimeter);
     }
     long elapsed = currentTimeMillis() - start;
     out.println("Completed in " + elapsed + "ms");

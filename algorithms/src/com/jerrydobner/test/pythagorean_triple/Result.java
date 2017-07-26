@@ -27,7 +27,11 @@ public class Result {
 
   @Override
   public String toString() {
-    return "a=" + a + ", b=" + b + ", c=" + c + " cycles=" + iterations;
+    return "P=" + getPerimeter() + ", a=" + a + ", b=" + b + ", c=" + c + " cycles=" + iterations;
+  }
+
+  public int getPerimeter() {
+    return a+b+c;
   }
 
   public boolean isValid() {

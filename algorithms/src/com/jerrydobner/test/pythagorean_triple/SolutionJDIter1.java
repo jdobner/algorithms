@@ -11,15 +11,15 @@ public class SolutionJDIter1 implements Solution {
 
   private int counter;
 
-  public Result solve() {
+  public Result solve(int perimeter) {
     int counter = 0;
 
-    for (int a = 1; a < 1000; a++) {
-      int lo = a + 1, hi = 1000;
+    for (int a = 1; a < perimeter; a++) {
+      int lo = a + 1, hi = perimeter;
       while (lo <= hi) {
         counter++;
         int b = lo + (hi - lo) / 2;
-        int c = 1000 - (a + b);
+        int c = perimeter - (a + b);
         int diff = (c * c) - ((a * a) + (b * b));
         // diff > 0 means c is too large, b is too small
         if (diff > 0)
